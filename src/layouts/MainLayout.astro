@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { siteInfo } from "../constants/siteInfo";
+import NavBar from "../components/shared/NavBar.astro";
 
 interface Props {
   title: string;
@@ -46,8 +47,9 @@ const {
     <ClientRouter />
     <title>{title}</title>
   </head>
-  <body class="bg-slate-800 text-slate-100 m-auto max-w-3xl">
-    <main class="m-5">
+  <body class="bg-slate-800 text-slate-100">
+    <NavBar />
+    <main class="m-auto max-w-3xl my-10">
       <slot />
     </main>
   </body>

@@ -1,5 +1,6 @@
 ---
 import PokemonCard from "../components/pokemon/PokemonCard.astro";
+import Title from "../components/shared/Title.astro";
 import type { PokemonListResponse } from "../interfaces/pokemon-list.response";
 import MainLayout from "../layouts/MainLayout.astro";
 
@@ -8,8 +9,7 @@ const data = (await res.json()) as PokemonListResponse;
 ---
 
 <MainLayout title="Pokémon static list | Home">
-  <h1>Pokemon List</h1>
-  <hr />
+  <Title>Pokemon List</Title>
   <section
     aria-label="pokemon list"
     class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 mt-5 gap-4"

@@ -1,0 +1,17 @@
+---
+import Counter from "../../components/Counter";
+import Title from "../../components/shared/Title.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Islands">
+  <Title> Islands </Title>
+  <video controls autoplay muted transition:persist="media-player">
+    <source
+      src="https://archive.org/details/PokemonRed_209/PokemonRed_209_HQ_part01.mp4"
+      type="video/mp4"
+    />
+  </video>
+  <div class="h-200 bg-blue-950"></div>
+  <Counter client:visible />
+</MainLayout>

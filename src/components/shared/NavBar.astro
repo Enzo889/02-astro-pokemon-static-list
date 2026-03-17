@@ -1,0 +1,49 @@
+---
+const links = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Pokemons",
+    href: "/pokemons/1",
+  },
+  {
+    label: "Favorites",
+    href: "/favorites",
+  },
+  {
+    label: "Islands",
+    href: "/islands",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-whitborder-b-2 border-blue-500 shadow dark:bg-gray-800">
+  <div
+    class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300"
+  >
+    {
+      links.map(({ href, label }) => (
+        <div>
+          <a
+            class="text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6 "
+            href={href}
+          >
+            {label}
+          </a>
+          {currentPath === href ? (
+            <div
+              class="border-blue-500 border-b-2 mx-4"
+              transition:name="nav-slide"
+            />
+          ) : (
+            <div class="border-transparent border-b-2 mx-4  " />
+          )}
+        </div>
+      ))
+    }
+  </div>
+</nav>
