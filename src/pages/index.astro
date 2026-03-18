@@ -1,4 +1,5 @@
 ---
+import Counter from "../components/Counter";
 import PokemonCard from "../components/pokemon/PokemonCard.astro";
 import Title from "../components/shared/Title.astro";
 import type { PokemonListResponse } from "../interfaces/pokemon-list.response";
@@ -10,6 +11,18 @@ const data = (await res.json()) as PokemonListResponse;
 
 <MainLayout title="Pokémon static list | Home">
   <Title>Pokemon List</Title>
+  <video
+    controls
+    autoplay
+    muted
+    transition:persist="media-player"
+    class="w-full"
+  >
+    <source
+      src="https://archive.org/download/PokemonRed_209/PokemonRed_209_HQ_part01.mp4"
+      type="video/mp4"
+    />
+  </video>
   <section
     aria-label="pokemon list"
     class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 mt-5 gap-4"
@@ -20,4 +33,6 @@ const data = (await res.json()) as PokemonListResponse;
       ))
     }
   </section>
+
+  <Counter client:visible transition:persist="counter" transition:persist-props initialValue={30} />
 </MainLayout>

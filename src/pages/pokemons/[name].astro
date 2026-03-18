@@ -61,10 +61,7 @@ const ArtWork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
 </MainLayout>
 
 <script>
-  interface FavoritePokemon {
-    name: string;
-    id: number;
-  }
+  import type { FavoritePokemon } from "../../interfaces/FavoritePokemons.interface";
 
   const handleToggleFavorite = () => {
     let favoritePokemon: FavoritePokemon[] = JSON.parse(
