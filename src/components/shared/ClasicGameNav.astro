@@ -1,0 +1,92 @@
+---
+// 1. Definimos la estructura de los links
+const menuItems = [
+  { label: "POKÉDEX", href: "/pokemons/1" },
+  { label: "FAVORITES", href: "/favorites" },
+  { label: "ISLANDS", href: "/islands" },
+  { label: "SAVE", id: "btn-save", isButton: true },
+];
+
+const linkStyles =
+  "flex items-center gap-4 cursor-pointer focus:outline-none focus:underline hover:underline decoration-4 underline-offset-8 w-full group text-left";
+---
+
+<nav
+  class="retro-dialog w-72 flex flex-col items-start px-8 py-4 gap-6 text-sm sm:text-base justify-center mx-auto"
+>
+  {
+    menuItems.map((item) =>
+      item.isButton ? (
+        <button id={item.id} class={linkStyles}>
+          <span class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity">
+            ▶
+          </span>
+          <span>{item.label}</span>
+        </button>
+      ) : (
+        <a href={item.href} class={linkStyles}>
+          <span class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity">
+            ▶
+          </span>
+          <span>{item.label}</span>
+        </a>
+      ),
+    )
+  }
+</nav>
+
+<dialog
+  id="save-dialog"
+  class="retro-dialog fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-0 z-50 backdrop:bg-black/50 backdrop:backdrop-blur-sm open:flex flex-col w-[90%] max-w-md shadow-2xl"
+>
+  <p id="save-text" class="text-sm sm:text-base leading-loose min-h-16"></p>
+</dialog>
+
+<script>
+  const handleSaveEasterEgg = () => {
+    const btnSave = document.getElementById("btn-save");
+    const dialog = document.getElementById("save-dialog") as HTMLDialogElement;
+    const saveText = document.getElementById("save-text");
+
+    if (!btnSave || !dialog || !saveText) return;
+
+    // Clonamos para limpiar event listeners previos (útil en Astro con View Transitions)
+    const newBtn = btnSave.cloneNode(true);
+    btnSave.parentNode?.replaceChild(newBtn, btnSave);
+
+    newBtn.addEventListener("click", () => {
+      dialog.showModal();
+      saveText.innerHTML = "";
+
+      const text1 = "SAVING...";
+      const text2 = "Red saved the game!";
+
+      const typeWriter = (text: string, element: HTMLElement, speed = 50) => {
+        return new Promise<void>((resolve) => {
+          let i = 0;
+          function type() {
+            if (i < text.length) {
+              element.innerHTML += text.charAt(i);
+              i++;
+              setTimeout(type, speed);
+            } else {
+              resolve();
+            }
+          }
+          type();
+        });
+      };
+
+      // Uso de Async/Await para que el flujo del diálogo sea más legible
+      (async () => {
+        await typeWriter(text1, saveText);
+        await new Promise((r) => setTimeout(r, 700));
+        saveText.innerHTML += "<br><br>";
+        await typeWriter(text2, saveText);
+        setTimeout(() => dialog.close(), 2500);
+      })();
+    });
+  };
+
+  document.addEventListener("astro:page-load", handleSaveEasterEgg);
+</script>

@@ -1,17 +1,27 @@
 ---
 import Counter from "../components/Counter";
-import PokemonCard from "../components/pokemon/PokemonCard.astro";
-import Title from "../components/shared/Title.astro";
-import type { PokemonListResponse } from "../interfaces/pokemon-list.response";
+import ClasicGameNav from "../components/shared/ClasicGameNav.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-
-const res = await fetch("https://pokeapi.co/api/v2/pokemon");
-const data = (await res.json()) as PokemonListResponse;
 ---
 
 <MainLayout title="Pokémon static list | Home">
-  <Title>Pokemon List</Title>
-  <div class="retro-dialog mb-8 p-2">
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center mb-4 relative mt-4">
+    <h1
+      class="text-4xl md:text-6xl uppercase font-bold text-center tracking-widest text-red-600 mb-2"
+      style="text-shadow: 4px 4px 0px black;"
+    >
+      POKÉMON
+    </h1>
+    <h2
+      class="text-xl md:text-3xl uppercase font-bold text-center mt-2 tracking-widest mb-8 text-black"
+    >
+      RED VERSION
+    </h2>
+    <ClasicGameNav />
+  </section>
+
+  <div class="retro-dialog mb-8 p-2 aspect-video flex justify-center bg-black">
     <video
       controls
       autoplay
@@ -25,16 +35,19 @@ const data = (await res.json()) as PokemonListResponse;
       />
     </video>
   </div>
-  <section
-    aria-label="pokemon list"
-    class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 mt-5 gap-4"
-  >
-    {
-      data.results.map((data) => (
-        <PokemonCard name={data.name} url={data.url} />
-      ))
-    }
-  </section>
+
+  <div class="retro-dialog mb-8 text-xs sm:text-base leading-relaxed">
+    <p class="mb-4">
+      Welcome to this Astro learning project! Below you'll find a Counter component and above is a Video player.
+    </p>
+    <p class="mb-4">
+      <span class="text-red-600">Why are they here?</span> This page serves as a live demonstration of <strong>Astro Islands</strong> and <strong>View Transitions</strong>.
+    </p>
+    <ul class="list-disc list-inside flex flex-col gap-2">
+      <li><strong>The Video</strong> uses <code class="bg-gray-200 px-1 text-black">transition:persist</code> to keep playing without interruption when you navigate to other pages.</li>
+      <li><strong>The Counter</strong> is an interactive SolidJS island that loads only when visible using <code class="bg-gray-200 px-1 text-black">client:visible</code>, and its state is saved across navigations using <code class="bg-gray-200 px-1 text-black">transition:persist</code>.</li>
+    </ul>
+  </div>
 
   <Counter
     client:visible

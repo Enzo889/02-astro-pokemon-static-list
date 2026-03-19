@@ -6,6 +6,18 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout title="Islands">
   <Title> Islands </Title>
+  <div class="retro-dialog mb-8 text-xs sm:text-base leading-relaxed">
+    <p class="mb-4 text-blue-700">
+      * THIS PAGE DEMONSTRATES THE POWER OF "ASTRO ISLANDS" AND "VIEW TRANSITIONS".
+    </p>
+    <p class="mb-4">
+      1. THE VIDEO: USES `TRANSITION:PERSIST`. THIS ALLOWS THE VIDEO TO CONTINUE PLAYING WITHOUT INTERRUPTION EVEN WHEN NAVIGATING TO ANOTHER PAGE.
+    </p>
+    <p>
+      2. THE COUNTER: IS AN INTERACTIVE SOLIDJS COMPONENT. IT USES `CLIENT:VISIBLE`, MEANING ITS JAVASCRIPT ONLY LOADS WHEN IT ENTERS THE SCREEN. IT ALSO USES `TRANSITION:PERSIST` SO THE COUNT VALUE REMAINS SAVED BETWEEN PAGE LOADS.
+    </p>
+  </div>
+  
   <div class="retro-dialog mb-8 p-2 aspect-video flex justify-center bg-black">
     <video
       controls
