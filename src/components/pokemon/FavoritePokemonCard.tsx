@@ -23,21 +23,21 @@ export const FavoritePokemonCard: Component<Props> = ({ pokemon }) => {
 
   return (
     <Show when={isVisible()}>
-      <div class="flex flex-col items-center justify-center text-center gap-1">
-        <a href={`/pokemons/${pokemon.name}`}>
+      <div class="retro-dialog flex flex-col items-center justify-center text-center gap-4 hover:bg-gray-100 transition-colors">
+        <a href={`/pokemons/${pokemon.name}`} class="flex flex-col items-center">
           <img
             src={imageSrc}
             alt={pokemon.name}
-            class="w-40 h-40"
+            class="w-32 h-32 mb-2"
             style={`view-transition-name: ${pokemon.name}-image`}
           />
-          <p class="text-lg font-bold">
+          <p class="text-xs sm:text-sm uppercase font-bold">
             #{pokemon.id} {pokemon.name}
           </p>
         </a>
         <button
           onClick={deleteFavorite}
-          class="bg-red-700 hover:bg-red-900 transition-colors duration-200 text-white px-4  py-2 rounded-lg cursor-pointer"
+          class="retro-btn retro-btn-red text-xs mt-2"
         >
           Delete
         </button>

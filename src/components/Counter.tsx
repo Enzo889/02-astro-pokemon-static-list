@@ -14,8 +14,7 @@ const Counter: Component<Props> = (props) => {
       {props.children}
       <div class="flex justify-center items-center">
         <button
-          class="bg-blue-500 rounded p-4 m-2 cursor-pointer"
-          // Usamos una función que retorna el nuevo valor sin mutar 'prev'
+          class="retro-btn m-2"
           onClick={() => setCount((prev) => prev + 1)}
         >
           +1
@@ -24,7 +23,7 @@ const Counter: Component<Props> = (props) => {
         <div class="text-2xl">{count()}</div>
 
         <button
-          class="bg-blue-500 rounded p-4 m-2 cursor-pointer"
+          class="retro-btn m-2"
           onClick={() => setCount((prev) => prev - 1)}
         >
           -1

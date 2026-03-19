@@ -13,9 +13,9 @@ const ArtWork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
 
 <a
   class:list={[
-    `rounded flex flex-col justify-center items-center p-2 text-center `,
+    `flex flex-col justify-center items-center p-4 text-center hover:bg-gray-200 transition-colors`,
     {
-      border: !isBig,
+      "retro-dialog": !isBig,
     },
   ]}
   href={`/pokemons/${name}`}
@@ -33,9 +33,10 @@ const ArtWork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
   />
   <span
     class:list={[
-      "capitalize",
+      "uppercase mt-2",
       {
-        "text-4xl text-blue-300": isBig,
+        "text-3xl lg:text-5xl": isBig,
+        "text-xs sm:text-sm": !isBig
       },
     ]}>#{id} {name}</span
   >

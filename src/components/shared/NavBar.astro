@@ -21,27 +21,27 @@ const links = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="bg-whitborder-b-2 border-blue-500 shadow dark:bg-gray-800">
+<nav class="bg-white border-b-4 border-black mb-8 pb-1 pt-1">
   <div
-    class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300"
+    class="container flex items-center justify-center p-4 mx-auto text-black uppercase"
   >
     {
       links.map(({ href, label }) => (
-        <div>
+        <div class="relative flex items-center justify-center">
+          {currentPath === href && (
+            <span
+              class="absolute left-2.5   text-xl"
+              transition:name="nav-pointer"
+            >
+              ▶
+            </span>
+          )}
           <a
-            class="text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6 "
+            class="text-black mx-4 sm:mx-8 hover:underline decoration-4 underline-offset-[6px]"
             href={href}
           >
             {label}
           </a>
-          {currentPath === href ? (
-            <div
-              class="border-blue-500 border-b-2 mx-4"
-              transition:name="nav-slide"
-            />
-          ) : (
-            <div class="border-transparent border-b-2 mx-4  " />
-          )}
         </div>
       ))
     }

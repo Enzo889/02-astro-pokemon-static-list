@@ -29,27 +29,28 @@ const ArtWork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
   image={ArtWork}
   description={`information about Pokemon: "${name}".`}
 >
-  <section class="mt-10 mx-10 flex flex-col justify-center items-center">
-    <button onclick="history.back()" class="text-blue-500 ml-4 cursor-pointer">
-      Regresar
-    </button>
-    <div class="flex flex-row items-center justify-center gap-4">
-      <Title>{name}</Title>
+  <section class="mt-8 mx-auto flex flex-col justify-center items-center max-w-lg">
+    <div class="flex w-full justify-between items-center mb-8">
+      <button onclick="history.back()" class="retro-btn text-xs">
+        Regresar
+      </button>
       <button
         id="btn-favorite"
         data-name={name}
         data-id={id}
-        class="text-red-500 hover:animate-pulse cursor-pointer"
+        class="retro-btn text-xs flex items-center gap-2 text-red-500"
       >
-        <Icon name="heart-icon" data-heart-icon size="40" />
+        <Icon name="heart-icon" data-heart-icon size="24" />
         <Icon
           name="heart-icon-solid"
           data-heart-icon-solid
-          class="hidden"
-          size="40"
+          class="hidden text-red-500"
+          size="24"
         />
+        FAV
       </button>
     </div>
+    <Title>{name}</Title>
 
     <PokemonCard isBig name={name} url={url} />
 
