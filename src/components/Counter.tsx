@@ -12,7 +12,7 @@ const Counter: Component<Props> = (props) => {
   return (
     <>
       {props.children}
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center gap-1.5">
         <button
           class="retro-btn m-2"
           onClick={() => setCount((prev) => prev + 1)}

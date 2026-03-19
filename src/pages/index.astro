@@ -18,7 +18,6 @@ import MainLayout from "../layouts/MainLayout.astro";
     >
       RED VERSION
     </h2>
-    <ClasicGameNav />
   </section>
 
   <div class="retro-dialog mb-8 p-2 aspect-video flex justify-center bg-black">
@@ -35,17 +34,33 @@ import MainLayout from "../layouts/MainLayout.astro";
       />
     </video>
   </div>
+  <ClasicGameNav />
 
-  <div class="retro-dialog mb-8 text-xs sm:text-base leading-relaxed">
+  <div class="retro-dialog my-8 text-xs sm:text-base leading-relaxed">
     <p class="mb-4">
-      Welcome to this Astro learning project! Below you'll find a Counter component and above is a Video player.
+      Welcome to this Astro learning project! Below you'll find a Counter
+      component and above is a Video player.
     </p>
     <p class="mb-4">
-      <span class="text-red-600">Why are they here?</span> This page serves as a live demonstration of <strong>Astro Islands</strong> and <strong>View Transitions</strong>.
+      <span class="text-red-600">Why are they here?</span> This page serves as a live
+      demonstration of <strong>Astro Islands</strong> and <strong
+        >View Transitions</strong
+      >.
     </p>
     <ul class="list-disc list-inside flex flex-col gap-2">
-      <li><strong>The Video</strong> uses <code class="bg-gray-200 px-1 text-black">transition:persist</code> to keep playing without interruption when you navigate to other pages.</li>
-      <li><strong>The Counter</strong> is an interactive SolidJS island that loads only when visible using <code class="bg-gray-200 px-1 text-black">client:visible</code>, and its state is saved across navigations using <code class="bg-gray-200 px-1 text-black">transition:persist</code>.</li>
+      <li>
+        <strong>The Video</strong> uses <code
+          class="bg-gray-200 px-1 text-black">transition:persist</code
+        > to keep playing without interruption when you navigate to other pages.
+      </li>
+      <li>
+        <strong>The Counter</strong> is an interactive SolidJS island that loads only
+        when visible using <code class="bg-gray-200 px-1 text-black"
+          >client:visible</code
+        >, and its state is saved across navigations using <code
+          class="bg-gray-200 px-1 text-black">transition:persist</code
+        >.
+      </li>
     </ul>
   </div>
 

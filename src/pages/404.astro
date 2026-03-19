@@ -1,0 +1,37 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="404 | Not Found">
+  <section
+    class="flex flex-col items-center justify-center mb-16 relative mt-16 min-h-[50vh]"
+  >
+    <h1
+      class="text-6xl md:text-8xl uppercase font-bold text-center tracking-widest text-black mb-8"
+      style="text-shadow: 6px 6px 0px #aaa;"
+    >
+      ERROR 404
+    </h1>
+
+    <div
+      class="retro-dialog mt-8 w-full max-w-md text-left text-sm sm:text-base leading-relaxed"
+    >
+      <p class="mb-6 uppercase animate-pulse">¡A wild MISSINGNO. appeared!</p>
+      <p class="mb-8">
+        The page you are looking for doesn't exist or has fled from battle.
+      </p>
+
+      <div class="flex justify-end">
+        <a
+          href="/"
+          class="retro-btn inline-flex items-center justify-center gap-2 group decoration-transparent hover:decoration-transparent"
+        >
+          <span class="opacity-0 group-hover:opacity-100 transition-opacity"
+            >▶</span
+          >
+          <span>RUN AWAY</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -14,9 +14,22 @@ export const FavoritePokemons = () => {
 
   return (
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      <For each={pokemons()}>
-        {(pokemon) => <FavoritePokemonCard pokemon={pokemon} />}
-      </For>
+      {pokemons().length === 0 ? (
+        <p class="col-span-full text-center">
+          No favorite pokemons yet. Go to the{" "}
+          <a
+            class="underline transition-colors duration-300 hover:text-red-600"
+            href="/pokemons/1"
+          >
+            pokédex
+          </a>{" "}
+          to add some.
+        </p>
+      ) : (
+        <For each={pokemons()}>
+          {(pokemon) => <FavoritePokemonCard pokemon={pokemon} />}
+        </For>
+      )}
     </div>
   );
 };
